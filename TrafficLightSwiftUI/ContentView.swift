@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         
         ZStack{
-            Color.purple
+            Color.teal
                 .ignoresSafeArea()
             
             VStack {
