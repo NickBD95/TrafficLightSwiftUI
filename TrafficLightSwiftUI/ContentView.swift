@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var redLightOpasity = 0.4
-    @State var yellowLightOpasity = 0.4
-    @State var greenLighOpasity = 0.4
+    @State private var redLightOpasity = 0.4
+    @State private var yellowLightOpasity = 0.4
+    @State private var greenLighOpasity = 0.4
     
-    let lightIsOn = 1.0
-    let lighIsOff = 0.4
+    private let lightIsOn = 1.0
+    private let lighIsOff = 0.4
     
-    @State var buttonText = "START"
+    @State private var buttonText = "START"
     
     var body: some View {
         
