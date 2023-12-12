@@ -13,6 +13,9 @@ struct ContentView: View {
     @State var yellowLightOpasity = 0.4
     @State var greenLighOpasity = 0.4
     
+    let lightIsOn = 1.0
+    let lighIsOff = 0.4
+    
     @State var buttonText = "START"
     
     var body: some View {
@@ -24,24 +27,14 @@ struct ContentView: View {
             VStack {
                 VStack {
                     LightView(color: .red, with: 130, opacity: redLightOpasity)
-                    Spacer()
+                        .padding(.bottom, 25)
                     LightView(color: .yellow, with: 130, opacity: yellowLightOpasity)
-                    Spacer()
+                        .padding(.bottom, 25)
                     LightView(color: .green, with: 130, opacity: greenLighOpasity)
-                    Spacer()
                 }
-                .padding()
+                .padding(.bottom, 120)
                 
-                Button(action: changeColor){
-                    Text(buttonText)
-                        .font(.largeTitle)
-                        .tint(.white)
-     
-                }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 5)
-                .background(Color.blue)
-                .clipShape(ButtonBorderShape.capsule)
+                ButtonView(buttonText: buttonText, buttonFunc: changeColor)
             }
             .padding()
         }
@@ -53,15 +46,15 @@ extension ContentView {
     private func changeColor() {
         buttonText = "NEXT"
         
-        if redLightOpasity != 1.0 && yellowLightOpasity != 1.0 {
-            redLightOpasity = 1.0
-            greenLighOpasity = 0.4
-        } else if redLightOpasity == 1.0 {
-            redLightOpasity = 0.4
-            yellowLightOpasity = 1.0
+        if redLightOpasity != lightIsOn && yellowLightOpasity != lightIsOn {
+            redLightOpasity = lightIsOn
+            greenLighOpasity = lighIsOff
+        } else if redLightOpasity == lightIsOn {
+            redLightOpasity = lighIsOff
+            yellowLightOpasity = lightIsOn
         } else {
-            yellowLightOpasity = 0.4
-            greenLighOpasity = 1.0
+            yellowLightOpasity = lighIsOff
+            greenLighOpasity = lightIsOn
         }
     }
 }
