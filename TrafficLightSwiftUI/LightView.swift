@@ -10,7 +10,6 @@ import SwiftUI
 struct LightView: View {
     
     let color: Color
-    let with: CGFloat
     let opacity: CGFloat
     
     var body: some View {
@@ -18,7 +17,7 @@ struct LightView: View {
         ZStack {
             Circle()
                 .foregroundStyle(color)
-                .frame(width: with)
+                .frame(width: 130)
                 .opacity(opacity)
                 .overlay(
                     Circle()
@@ -30,5 +29,5 @@ struct LightView: View {
 }
 
 #Preview {
-    LightView(color: .red, with: 200, opacity: 0.2)
+    LightView(color: .red, opacity: 0.2)
 }

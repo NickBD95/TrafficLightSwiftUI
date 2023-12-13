@@ -25,18 +25,16 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
-                VStack {
-                    LightView(color: .red, with: 130, opacity: redLightOpasity)
-                        .padding(.bottom, 25)
-                    LightView(color: .yellow, with: 130, opacity: yellowLightOpasity)
-                        .padding(.bottom, 25)
-                    LightView(color: .green, with: 130, opacity: greenLighOpasity)
+                VStack(spacing: 40) {
+                    LightView(color: .red, opacity: redLightOpasity)
+                    LightView(color: .yellow, opacity: yellowLightOpasity)
+                    LightView(color: .green, opacity: greenLighOpasity)
                 }
-                .padding(.bottom, 120)
-                
-                ButtonView(buttonText: buttonText, buttonFunc: changeColor)
+                Spacer()
+                ButtonView(buttonText: buttonText, action: changeColor)
             }
-            .padding()
+            .padding(.top, 45)
+            .padding(.bottom, 30)
         }
     }
 }

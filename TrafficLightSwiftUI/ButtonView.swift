@@ -10,25 +10,21 @@ import SwiftUI
 struct ButtonView: View {
     
      let buttonText: String
-     let buttonFunc: () -> Void
+     let action: () -> Void
     
     var body: some View {
-        Button(action: buttonFunc ){
+        Button(action: action ){
             Text(buttonText)
-                .font(.largeTitle)
+                .font(.system(size: 30))
                 .tint(.white)
+                
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 5)
+        .frame(width: 130, height: 50)
         .background(Color.blue)
         .clipShape(ButtonBorderShape.capsule)
     }
 }
 
-func buttonFunc() {
-    
-}
-
 #Preview {
-    ButtonView(buttonText: "button", buttonFunc: buttonFunc)
+    ButtonView(buttonText: "button", action: {})
 }
